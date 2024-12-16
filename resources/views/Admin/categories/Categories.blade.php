@@ -17,7 +17,7 @@
                 <td> {{ $category->name }} </td>
                 <td> {{ $category->created_at }} </td>
                 <td>
-                    <a class='btn-edit' href="./edit.html">ویرایش</a>
+                    <a class='btn-edit' href="{{ route('Panel.Category.EditCategories' , $category->id) }}">ویرایش</a>
                     <a class='btn-delete' href="#">حذف</a>
                 </td>
             </tr>

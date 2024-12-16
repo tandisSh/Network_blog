@@ -31,4 +31,20 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('Admin.categories.Categories' , compact('categories'));
     }
+    public function EditCategories($id){
+        $category = Category::find($id);
+        return view('Admin.categories.EditCategory', compact('category'));
+    }
+    public function UpdateCategories(Request $request, $id){
+        $category = Category::find($id);
+        $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move(public_path('AdminAssets\Category-image'), $imageName);
+        $dataform = $request->all();
+        $dataform['image'] = $imageName;
+
+        $category->update($dataform);
+
+        Alert::success(' موفقیت', 'دسته بندی با موفقیت ویرایش شد ');
+        return redirect()->route('Panel.Category.Categories');
+    }
 }
