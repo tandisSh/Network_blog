@@ -36,6 +36,6 @@ Route::prefix('Panel')->group(function () {
         //category edit
         Route::post('/Edit{id}', [ArticleController::class, "UpdateArticles"])->name('Panel.Article.UpdateArticles');
         //category delete
-        // Route::get('/Delete{id}', [CategoryController::class, "DeleteCategories"])->name('Panel.Category.DeleteCategories');
+        Route::get('/Delete{id}', [ArticleController::class, "DeleteArticles"])->name('Panel.Article.DeleteArticles');
     });
 });

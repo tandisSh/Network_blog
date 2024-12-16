@@ -19,7 +19,7 @@
         <td> {{ $article->created_at }} </td>
         <td>
             <a class='btn-edit' href="{{ route('Panel.Article.EditArticles',$article->id )}}">ویرایش</a>
-            <a class='btn-delete' href="#">حذف</a>
+            <a class='btn-delete' href="{{ route('Panel.Article.DeleteArticles',$article->id )}}">حذف</a>
         </td>
     </tr>
     <tr>

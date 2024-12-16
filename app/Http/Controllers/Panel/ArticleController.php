@@ -57,4 +57,17 @@ class ArticleController extends Controller
         Alert::success(' موفقیت', ' مقاله با موفقیت ویرایش شد ');
         return redirect()->route('Panel.Article.Articles');
     }
+    public function DeleteArticles(Request $request, $id)
+    {
+        $Article = Article::find($id);
+
+        $picture = "AdminAssets/Article-image/" . $Article->image;
+        if (FacadesFile::exists($picture)) {
+            FacadesFile::delete($picture);
+        }
+        $Article->delete();
+
+        Alert::success(' موفقیت', ' مقاله با موفقیت حذف شد ');
+        return redirect()->route('Panel.Article.Articles');
+    }
 }
