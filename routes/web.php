@@ -14,5 +14,7 @@ Route::prefix('Panel')->group(function () {
         Route::get('/Create', [CategoryController::class, "Create"])->name('Panel.Category.Create');
         //add categories
         Route::post('/Create', [CategoryController::class, "StoreCategory"])->name('Panel.Category.StoreCategory');
+        //categories list
+        Route::get('/Categories', [CategoryController::class, "Categories"])->name('Panel.Category.Categories');
     });
 });

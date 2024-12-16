@@ -23,6 +23,10 @@ class CategoryController extends Controller
         Category::create($dataform);
 
         // Alert::success(' موفقیت', 'دسته بندی با موفقیت اضافه شد ');
-        return redirect()->route('Panel.Category.StoreCategory');
+        return redirect()->route('Panel.Category.Categories');
+    }
+    public function Categories(){
+        $categories = Category::all();
+        return view('Admin.categories.Categories' , compact('categories'));
     }
 }
