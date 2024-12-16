@@ -1,3 +1,6 @@
+@extends('Admin.layouts.Master')
+
+@section('content')
 <table class="product-table">
     <tr>
         <th>تصویر</th>
@@ -17,3 +20,5 @@
     <tr>
     </tr>
 </table>
+@endsection
+

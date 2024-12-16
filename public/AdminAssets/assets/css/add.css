@@ -24,10 +24,11 @@ form {
     flex-direction: column;
 }
 
-#product_name,
-#product_description,
-#product_price,
-#product_image {
+#article_name,
+#article_description,
+#article_category,
+#article_image
+#article_writer {
     background-color: #E8F0FE;
     border: 1px solid #E8F0FE;
     border-radius: 20px;
@@ -36,14 +37,14 @@ form {
     margin-top: 10px;
 }
 
-#product_name,
-#product_description,
-#product_price,
-#product_image:focus {
+#article_name,
+#article_description,
+#article_category,
+#article_image:focus {
     outline: none;
 }
 
-#educationLevel:focus {
+#article_writer:focus {
     outline: none;
 }
 
@@ -66,7 +67,7 @@ button {
     font-size: larger;
 }
 
-#educationLevel {
+#article_writer {
     border: 1px solid #E8F0FE;
     border-radius: 20px;
     background-color: #E8F0FE;
