@@ -32,9 +32,9 @@ Route::prefix('Panel')->group(function () {
         //Articles list
         Route::get('/Articles', [ArticleController::class, "Articles"])->name('Panel.Article.Articles');
         //category edit page
-        // Route::get('/Edit{id}', [CategoryController::class, "EditCategories"])->name('Panel.Category.EditCategories');
+        Route::get('/Edit{id}', [ArticleController::class, "EditArticles"])->name('Panel.Article.EditArticles');
         //category edit
-        // Route::post('/Edit{id}', [CategoryController::class, "UpdateCategories"])->name('Panel.Category.UpdateCategories');
+        Route::post('/Edit{id}', [ArticleController::class, "UpdateArticles"])->name('Panel.Article.UpdateArticles');
         //category delete
         // Route::get('/Delete{id}', [CategoryController::class, "DeleteCategories"])->name('Panel.Category.DeleteCategories');
     });

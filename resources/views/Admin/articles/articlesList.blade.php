@@ -18,8 +18,7 @@
         <td> {{ $article->writer }} </td>
         <td> {{ $article->created_at }} </td>
         <td>
-        <td>
-            <a class='btn-edit' href="./edit.html">ویرایش</a>
+            <a class='btn-edit' href="{{ route('Panel.Article.EditArticles',$article->id )}}">ویرایش</a>
             <a class='btn-delete' href="#">حذف</a>
         </td>
     </tr>
