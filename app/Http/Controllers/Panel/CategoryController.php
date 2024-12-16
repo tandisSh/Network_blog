@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class CategoryController extends Controller
 {
@@ -22,7 +24,7 @@ class CategoryController extends Controller
 
         Category::create($dataform);
 
-        // Alert::success(' موفقیت', 'دسته بندی با موفقیت اضافه شد ');
+        Alert::success(' موفقیت', 'دسته بندی با موفقیت اضافه شد ');
         return redirect()->route('Panel.Category.Categories');
     }
     public function Categories(){
