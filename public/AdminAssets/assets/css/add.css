@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+main {
+    background-color: white;
+    width: 500px;
+    height: 582px;
+    padding: 50px;
+    margin-top: 20px;
+    padding: 50px;
+    box-shadow: 0px 0px 20px 10px #ecebe9;
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#product_name,
+#product_description,
+#product_price,
+#product_image {
+    background-color: #E8F0FE;
+    border: 1px solid #E8F0FE;
+    border-radius: 20px;
+    padding: 15px;
+    width: 470px;
+    margin-top: 10px;
+}
+
+#product_name,
+#product_description,
+#product_price,
+#product_image:focus {
+    outline: none;
+}
+
+#educationLevel:focus {
+    outline: none;
+}
+
+#name,
+#description,
+#price,
+#image {
+    margin-top: 30px;
+}
+
+button {
+    background-color: #000080;
+    border: 1px solid #000080;
+    border-radius: 10px;
+    color: white;
+    height: 55px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: larger;
+}
+
+#educationLevel {
+    border: 1px solid #E8F0FE;
+    border-radius: 20px;
+    background-color: #E8F0FE;
+    padding: 15px;
+    width: 500px;
+    margin-top: 10px;
+    font-family: "IranSans";
+}
+
+option {
+    border: 1px solid #E8F0FE;
+    border-radius: 20px;
+    background-color: #E8F0FE;
+    padding: 15px;
+    width: 500px;
+    font-family: "IranSans";
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
