@@ -26,6 +26,11 @@ class ArticleController extends Controller
         Article::create($dataform);
 
         Alert::success(' موفقیت', ' مقاله با موفقیت اضافه شد ');
-        return redirect()->route('Panel.Category.Create');
+        return redirect()->route('Panel.Article.Articles');
+    }
+    public function Articles()
+    {
+        $articles = Article::all();
+        return view('Admin.articles.articlesList', compact('articles'));
     }
 }

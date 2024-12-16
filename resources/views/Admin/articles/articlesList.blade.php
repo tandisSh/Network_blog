@@ -6,12 +6,18 @@
         <th>تصویر</th>
         <th>نام مقاله</th>
         <th>نویسنده</th>
+        <th>تاریخ ثبت</th>
         <th>عملیات</th>
     </tr>
+    @foreach ($articles as $article)
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+            <img src="{{ asset('AdminAssets/Article-image/' . $article->image) }}" alt="">
+        </td>
+        <td> {{ $article->name }} </td>
+        <td> {{ $article->writer }} </td>
+        <td> {{ $article->created_at }} </td>
+        <td>
         <td>
             <a class='btn-edit' href="./edit.html">ویرایش</a>
             <a class='btn-delete' href="#">حذف</a>
@@ -19,6 +25,7 @@
     </tr>
     <tr>
     </tr>
+    @endforeach
 </table>
 @endsection
 

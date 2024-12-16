@@ -25,12 +25,12 @@ Route::prefix('Panel')->group(function () {
         Route::get('/Delete{id}', [CategoryController::class, "DeleteCategories"])->name('Panel.Category.DeleteCategories');
     });
     Route::prefix('Article')->group(function () {
-        //show add category page
+        //show add Article page
         Route::get('/Create', [ArticleController::class, "Create"])->name('Panel.Article.Create');
-        //add categories
+        //add Articles
         Route::post('/Create', [ArticleController::class, "StoreArticle"])->name('Panel.Article.StoreArticle');
-        //categories list
-        // Route::get('/Categories', [CategoryController::class, "Categories"])->name('Panel.Category.Categories');
+        //Articles list
+        Route::get('/Articles', [ArticleController::class, "Articles"])->name('Panel.Article.Articles');
         //category edit page
         // Route::get('/Edit{id}', [CategoryController::class, "EditCategories"])->name('Panel.Category.EditCategories');
         //category edit
