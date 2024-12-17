@@ -11,4 +11,10 @@ class Article extends Model
 
     use HasFactory;
     protected $guarded = ["id"];
+    // Article.php
+public function category()
+{
+    return $this->belongsTo(Category::class);
+}
+
 }

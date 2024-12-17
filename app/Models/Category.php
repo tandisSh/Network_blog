@@ -10,4 +10,10 @@ class Category extends Model
 {
     use HasFactory;
     protected $guarded = ["id",];
+    // Category.php
+public function articles()
+{
+    return $this->hasMany(Article::class);
+}
+
 }
