@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/panel', function () {
     return view('Admin.index');
 });
-Route::get('/home', function () {
-    return view('Home.index');
-});
+
 Route::prefix('Panel')->group(function () {
 
     Route::prefix('Category')->group(function () {
@@ -41,13 +39,15 @@ Route::prefix('Panel')->group(function () {
         //category delete
         Route::get('/Delete{id}', [ArticleController::class, "DeleteArticles"])->name('Panel.Article.DeleteArticles');
     });
-    Route::namespace('Home')->group(function () {
 
-        Route::get('/', [HomeController::class, "Home"])->name('Home');
-        //single page
-        // Route::get('/product/{id}', [HomeController::class, "product"])->name('product');
-        // Route::get('/AddToCard', [HomeController::class, "AddToCard"])->name('AddToCard');
-
-    });
 
 });
+Route::namespace('main')->group(function () {
+
+    Route::get('/', [HomeController::class, "Home"])->name('Home');
+    //single page
+    // Route::get('/product/{id}', [HomeController::class, "product"])->name('product');
+    // Route::get('/AddToCard', [HomeController::class, "AddToCard"])->name('AddToCard');
+
+});
+
