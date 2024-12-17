@@ -47,8 +47,12 @@ Route::namespace('main')->group(function () {
     Route::get('/single/{id}', [HomeController::class, "single"])->name('single');
 });
 Route::namespace('Auth')->group(function () {
-
+    //register form
     Route::get('/Register', [AuthController::class, "RegisterForm"])->name('RegisterForm');
     //register
     Route::post('/Register', [AuthController::class, "Register"])->name('Register');
+    //login form
+    Route::get('/Login', [AuthController::class, "LoginForm"])->name('LoginForm');
+    //login
+    Route::post('/Login', [AuthController::class, "Login"])->name('Login');
 });

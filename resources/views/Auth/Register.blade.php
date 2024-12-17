@@ -43,7 +43,7 @@
             <button name="button" id="sabtnam" type="submit">ثبت نام</button>
 
             <p id="sabt">
-                قبلا ثبت نام کرده اید؟<a href="./login.html" id="vorodhesab"> ورود به حساب</a>
+                قبلا ثبت نام کرده اید؟<a href="{{ route('LoginForm')}}" id="vorodhesab"> ورود به حساب</a>
             </p>
         </form>
     </div>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,45 +9,56 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function RegisterForm(){
+    public function RegisterForm()
+    {
         return view("Auth.Register");
     }
-    public function Register(Request $request){
-
+    public function Register(Request $request)
+    {
         $request->validate([
-            "name"=>"required",
-            "email"=> "required",
-            "password"=> "required",
-     ]);
-    $emailUser=User::where("email",$request->email)->first();
-     if($emailUser==null){
+            "name" => "required",
+            "email" => "required",
+            "password" => "required",
+        ]);
+        $emailUser = User::where("email", $request->email)->first();
+        if ($emailUser == null) {
 
-        $dataForm=$request->all();
-        $user=User::create($dataForm);
-        Auth::login($user);
-        return redirect()->route("Home");
-     }else{
-          return redirect()->route("FormRegister")->with('error',"ایمیل از قبل وجود دارد");
-     }
+            $dataForm = $request->all();
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+
+            Auth::login($user);
+            return redirect()->route("Home");
+        } else {
+            return redirect()->route("RegisterForm")->with('error', "ایمیل از قبل وجود دارد");
+        }
     }
-    public function FormLogin(){
+    public function LoginForm()
+    {
         return view("Auth.Login");
     }
-    public function Login(Request $request){
-
+    public function Login(Request $request)
+    {
         $request->validate([
+            "email" => "required|email",
+            "password" => "required",
+        ]);
 
-            "email"=> "required",
-            "password"=> "required",
-     ]);
-    $user=User::where("email",$request->email)->where("password",$request->password)->first();
-     if($user){
-        Auth::login($user);
-        return redirect()->route("Home");
-     }else{
-          return redirect()->route("FormRegister")->with('error',"ایمیل یا رمز غلط است");
-     }
+
+        $user = User::where("email", $request->email)->first();
+
+
+        if ($user && Hash::check($request->password, $user->password)) {
+            Auth::login($user);
+            return redirect()->route("Home");
+        } else {
+            return redirect()->route("LoginForm")->with('error', "ایمیل یا رمز عبور اشتباه است");
+        }
     }
+
     // public function ShowProfile() {
     //     // دریافت کاربر جاری
     //     $user = Auth::user();
