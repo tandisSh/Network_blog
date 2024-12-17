@@ -22,11 +22,11 @@
              <div class="collapse navbar-collapse" style="float: left;">
                   <ul class="nav navbar-nav navbar-right">
                        <li><a href="./admin-panel.html">پنل ادمین</a></li>
-                       <li><a href="./login.html" > ورود/ثبت نام</a></li>
+                       <li><a href="{{ route('RegisterForm')}}" > ورود/ثبت نام</a></li>
                        <li class="active"><a href="index.html">صفحه اصلی</a></li>
                   </ul>
              </div>
 
         </div>
    </div>
-  
+

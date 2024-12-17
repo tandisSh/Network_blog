@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
-    const usernameField = document.getElementById("username");
-    const emailField = document.getElementById("email");
-    const passwordField = document.getElementById("password");
+    const usernameField = document.getElementById("fullname");
+    const emailField = document.getElementById("emailuser");
+    const passwordField = document.getElementById("pass");
 
     form.addEventListener("submit", (event) => {
         let isValid = true;
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             isValid = false;
         }
 
-    
+
 
         // Prevent submission if validation fails
         if (!isValid) event.preventDefault();

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Panel\ArticleController;
 use App\Http\Controllers\Panel\CategoryController;
@@ -8,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/panel', function () {
     return view('Admin.index');
 });
-
 Route::prefix('Panel')->group(function () {
 
     Route::prefix('Category')->group(function () {
@@ -39,15 +39,16 @@ Route::prefix('Panel')->group(function () {
         //category delete
         Route::get('/Delete{id}', [ArticleController::class, "DeleteArticles"])->name('Panel.Article.DeleteArticles');
     });
-
-
 });
 Route::namespace('main')->group(function () {
 
     Route::get('/', [HomeController::class, "Home"])->name('Home');
     //single page
     Route::get('/single/{id}', [HomeController::class, "single"])->name('single');
-  
-
 });
+Route::namespace('Auth')->group(function () {
 
+    Route::get('/Register', [AuthController::class, "RegisterForm"])->name('RegisterForm');
+    //register
+    Route::post('/Register', [AuthController::class, "Register"])->name('Register');
+});
