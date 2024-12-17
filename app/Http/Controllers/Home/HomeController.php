@@ -14,7 +14,9 @@ class HomeController extends Controller
     public function Home()
     {
         // واکشی تمام دسته‌بندی‌ها به همراه مقالات مرتبط
-        $categories =Category::with('articles')->get();
+        $categories = Category::with(['articles' => function ($query) {
+            $query->latest()->take(3); // فقط سه پست آخر هر دسته
+        }])->get();
 
         return view('Home.index', compact('categories'));
     }

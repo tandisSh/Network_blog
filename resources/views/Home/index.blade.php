@@ -20,7 +20,10 @@
     @foreach ($categories as $category)
         <!-- عنوان دسته‌بندی -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6 text-left">
+                <a href="{{ route('category.show', $category->id) }}" class="btn btn-primary">مشاهده همه</a>
+            </div>
+            <div class="col-md-6 text-right">
                 <h2 class="category-title">{{ $category->name }}</h2>
             </div>
         </div>
@@ -52,6 +55,7 @@
                 </div>
             @endforeach
         </div>
+
     @endforeach
 </div>
 @endsection

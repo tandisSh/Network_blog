@@ -53,7 +53,7 @@ letter-spacing: 2px;
 }
 
 p {
-color: #777;
+color: #000000;
 font-size: 15px;
 font-weight: 300;
 line-height: 26px;
@@ -281,25 +281,25 @@ text-align: center;
 }
 
 .main-home {
-background: url('../images/home-bg.jpg') no-repeat;
+background: url('../../Category-image/home-bg.jpg') no-repeat;
 height: 100vh;
 }
 
-.main-about {
-background: url('../images/about-bg.jpg') no-repeat;
+/* .main-about {
+background: url('.\Category-image\home-bg.jpg') no-repeat;
 }
 
 .main-single-post {
-background: url('../images/single-post-bg.jpg') no-repeat;
+background: url('.\Category-image\home-bg.jpg')no-repeat;
 }
 
 .main-gallery {
-background: url('../images/gallery-bg.jpg') no-repeat;
+background: url('.\Category-image\home-bg.jpg') no-repeat;
 }
 
 .main-contact {
 background: url('../images/contact-bg.jpg') no-repeat;
-}
+} */
 
 #particles-js {
 position: absolute;

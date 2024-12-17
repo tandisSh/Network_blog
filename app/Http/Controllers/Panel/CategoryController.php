@@ -69,4 +69,9 @@ class CategoryController extends Controller
         Alert::success(' موفقیت', 'دسته بندی با موفقیت حذف شد ');
         return redirect()->route('Panel.Category.Categories');
     }
+    public function show($id)
+{
+    $category = Category::with('articles')->findOrFail($id);
+    return view('Home.category', compact('category'));
+}
 }

@@ -45,6 +45,9 @@ Route::namespace('main')->group(function () {
     Route::get('/', [HomeController::class, "Home"])->name('Home');
     //single page
     Route::get('/single/{id}', [HomeController::class, "single"])->name('single');
+    //show all
+    Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+
 });
 Route::namespace('Auth')->group(function () {
     //register form
