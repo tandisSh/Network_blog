@@ -29,17 +29,4 @@
 
         </div>
    </div>
-     <!-- Home Section -->
-   <section id="home" class="main-home parallax-section">
-    <div class="overlay"></div>
-    <div id="particles-js"></div>
-    <div class="container">
-         <div class="row">
-
-              <div class="col-md-12 col-sm-12">
-                   <h1>کاربر گرامی به سایت Network Studio خوش آمدید</h1>
-              </div>
-
-         </div>
-    </div>
-</section>
+  

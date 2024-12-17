@@ -14,5 +14,10 @@ class HomeController extends Controller
         return view('Home.index', compact('articles'));
 
     }
+    public function single($id){
+
+        $article = Article::find( $id );
+        return view('Home.layouts.Single', compact('article'));
+    }
 
 }

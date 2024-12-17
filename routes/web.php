@@ -46,8 +46,8 @@ Route::namespace('main')->group(function () {
 
     Route::get('/', [HomeController::class, "Home"])->name('Home');
     //single page
-    // Route::get('/product/{id}', [HomeController::class, "product"])->name('product');
-    // Route::get('/AddToCard', [HomeController::class, "AddToCard"])->name('AddToCard');
+    Route::get('/single/{id}', [HomeController::class, "single"])->name('single');
+  
 
 });
 
