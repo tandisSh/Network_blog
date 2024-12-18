@@ -4,11 +4,13 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Panel\ArticleController;
 use App\Http\Controllers\Panel\CategoryController;
+use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/panel', function () {
     return view('Admin.index');
-});
+})->name('admin.panel')->middleware(Admin::class);
+
 Route::prefix('Panel')->group(function () {
 
     Route::prefix('Category')->group(function () {
@@ -58,4 +60,7 @@ Route::namespace('Auth')->group(function () {
     Route::get('/Login', [AuthController::class, "LoginForm"])->name('LoginForm');
     //login
     Route::post('/Login', [AuthController::class, "Login"])->name('Login');
+
+    Route::get('/logout', [AuthController::class, "Logout"])->name('Logout');
+
 });

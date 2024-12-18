@@ -58,6 +58,10 @@ class AuthController extends Controller
             return redirect()->route("LoginForm")->with('error', "ایمیل یا رمز عبور اشتباه است");
         }
     }
+    public function Logout(Request $request){
+        Auth::logout();
+        return redirect()->route('Home');
+    }
 
     // public function ShowProfile() {
     //     // دریافت کاربر جاری
