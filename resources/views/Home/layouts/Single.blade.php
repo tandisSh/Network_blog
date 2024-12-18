@@ -25,22 +25,24 @@
                         <div class="blog-post-des">
                              <p>{{$article->description}}</p>
                         </div>
-
-
+                        <hr>
+                        <div><h3 style="align-content: center">مقاله های مشابه</h3></div>
                         {{-- similar posts --}}
                         <div class="blog-single-post-image">
-                             <div class="col-md-4 col-sm-4">
-                                  <img src="images/blog-image1.jpg" class="img-responsive" alt="Blog Image 1">
-                             </div>
-                             <div class="col-md-4 col-sm-4">
-                                  <img src="images/blog-image2.jpg" class="img-responsive" alt="Blog Image 2">
-                             </div>
-                             <div class="col-md-4 col-sm-4">
-                                  <img src="images/blog-image3.jpg" class="img-responsive" alt="Blog Image 3">
-                             </div>
+                            <div class="row">
+                                @foreach ($similarPosts as $similarPost)
+                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                        <a href="{{ route('single', $similarPost->id) }}">
+                                            <img src="{{ asset('AdminAssets/Article-image/' . $similarPost->image) }}" class="img-responsive" alt="{{ $similarPost->name }}">
+                                        </a>
+                                        <h5><a href="{{ route('single', $similarPost->id) }}">{{ $similarPost->name }}</a></h5>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                        <p>Aliquam blandit velit nisi, sed fringilla felis lacinia sed. Integer vitae porta felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus non tristique lacus. Suspendisse ut tortor vitae risus lacinia tristique. Aliquam sed consectetur libero.</p>
 
+
+                        {{-- about writer --}}
                         <div class="blog-author">
                              <div class="media">
                                   <div class="media-object pull-left">
@@ -56,39 +58,7 @@
                         <div class="blog-comment">
                              <h3>Comments</h3>
                                   <div class="media">
-                                       <div class="media-object pull-left">
-                                            <img src="images/comment-image1.jpg" class="img-responsive img-circle" alt="Blog Image 11">
-                                       </div>
-                                       <div class="media-body">
-                                            <h3 class="media-heading">David Jones</h3>
-                                            <span>3 days ago</span>
-                                            <p>Aliquam gravida arcu at risus blandit, in interdum metus varius. Cras efficitur, ex sit amet tincidunt rhoncus, dui ex hendrerit risus, ac dapibus ligula mi id leo. In auctor dui justo, ac consequat dui posuere ac.</p>
-                                       </div>
-                                  </div>
-                                  <div class="media">
-                                       <div class="media-object pull-left">
-                                            <img src="images/comment-image2.jpg" class="img-responsive img-circle" alt="Blog Image 22">
-                                       </div>
-                                       <div class="media-body">
-                                            <h3 class="media-heading">Omar Larus</h3>
-                                            <span>5 days ago</span>
-                                            <p>Maecenas ultricies ante dignissim, iaculis ligula sed, gravida ipsum. Pellentesque lobortis velit mi, sed volutpat enim facilisis.</p>
-                                       </div>
-                                  </div>
-                                  <div class="media">
-                                       <div class="media-object pull-left">
-                                            <img src="images/author-image2.jpg" class="img-responsive img-circle" alt="Blog Image 33">
-                                       </div>
-                                       <div class="media-body">
-                                            <h3 class="media-heading">Walker Jen</h3>
-                                            <span>July 27, 2017</span>
-                                            <p>In eu posuere nulla, sit amet semper lectus. Aliquam gravida arcu at risus blandit, in interdum metus varius. Cras efficitur, ex sit amet tincidunt rhoncus, dui ex hendrerit risus, ac dapibus ligula mi id leo.</p>
-                                       </div>
-                                  </div>
-                                  <div class="media">
-                                       <div class="media-object pull-left">
-                                            <img src="images/author-image1.jpg" class="img-responsive img-circle" alt="Blog Image 44">
-                                       </div>
+                                       
                                        <div class="media-body">
                                             <h3 class="media-heading">Jen Lopez</h3>
                                             <span>July 24, 2017</span>
