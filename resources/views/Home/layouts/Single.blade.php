@@ -17,10 +17,9 @@
                         </div>
 
                         <div class="blog-post-format">
-                            <span><a href="#"><img src="images/author-image1.jpg" class="img-responsive img-circle">
+                            <span><a href="#">
                                     {{ $article->writer }}</a></span>
                             <span><i class="fa fa-date"></i> {{ $article->created_at }}</span>
-                            <span><a href="#"><i class="fa fa-comment-o"></i> 124 Comments</a></span>
                         </div>
 
                         <div class="blog-post-des">
@@ -46,24 +45,9 @@
                             </div>
                         </div>
 
-
-                        {{-- about writer --}}
-                        <div class="blog-author">
-                            <div class="media">
-                                <div class="media-object pull-left">
-                                    <img src="images/author-image1.jpg" class="img-circle img-responsive" alt="blog">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="media-heading"><a href="#">Jen Lopez ( Designer )</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip.</p>
-                                </div>
-                            </div>
-                        </div>
                         {{-- comments --}}
                         <div class="blog-comment">
-                            <h3>Comments</h3>
+                            <h3>کامنت ها</h3>
                             @forelse ($article->comments as $comment)
                                 <!-- گرفتن کامنت‌های مقاله -->
                                 <div class="media">
@@ -74,15 +58,15 @@
                                     </div>
                                 </div>
                             @empty
-                                <p>No comments yet. Be the first to comment!</p>
+                                <p>هنوز نظری وجود ندارد. اولین نفری باشید که نظر می دهد!</p>
                             @endforelse
                         </div>
 
                             {{-- leave a comment --}}
                             @if (Auth::check() && Auth::user())
                                 <div class="blog-comment-form">
-                                    <h3>Leave a Comment</h3>
-                                    <form action="{{ route('comments.store') }}" method="POST">
+                                    <h3>کامنت بگذارید</h3>
+                                    <form action="{{ route('comments') }}" method="POST">
                                         @csrf <!-- برای امنیت فرم -->
                                         <input type="hidden" name="article_id" value="{{ $article->id }}">
                                         <!-- اتصال کامنت به مقاله -->
@@ -98,13 +82,13 @@
                                         <textarea name="message" rows="5" class="form-control" id="message" placeholder="Message" required="required"></textarea>
                                         <div class="col-md-3 col-sm-4 mt-3">
                                             <input name="submit" type="submit" class="form-control btn btn-primary"
-                                                id="submit" value="Post Your Comment">
+                                                id="submit" value="ثبت نظر">
                                         </div>
                                     </form>
                                 </div>
                             @else
                                 <div class="blog-comment-form">
-                                    <h3>Leave a Comment</h3>
+                                    <h3>کامنت بگذارید</h3>
                                     <form action="#" method="POST">
                                         @csrf <!-- برای امنیت فرم -->
                                         <input type="hidden" name="article_id" value="{{ $article->id }}">
@@ -117,8 +101,7 @@
 
                                         <textarea name="message" rows="5" class="form-control" id="message" placeholder="Message" disabled></textarea>
                                         <div class="col-md-3 col-sm-4 mt-3">
-                                            <button type="button" class="form-control btn btn-secondary" disabled>Post Your
-                                                Comment</button>
+                                            <button type="button" class="form-control btn btn-secondary" disabled>ثبت نظر </button>
                                         </div>
                                     </form>
                                     <br>

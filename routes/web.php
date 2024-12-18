@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\UserProfileController;
 use App\Http\Controllers\Home\CommentController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Panel\ArticleController;
@@ -67,3 +68,5 @@ Route::namespace('Auth')->group(function () {
     Route::get('/logout', [AuthController::class, "Logout"])->name('Logout');
 
 });
+// Route::middleware(['Admin'])->group(function() {
+    Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');

@@ -17,7 +17,7 @@
                 <li><a href="{{ route('admin.panel')}}">پنل کاربری</a></li>
 
                 @if (Auth::check())
-                    <li><a href="#">{{ Auth::user()->name }}</a></li>
+                    <li><a href="{{ route('profile.show')}}">{{ Auth::user()->name }}</a></li>
                     {{-- <li><a href="{{ route('logout') }}">خروج</a></li> --}}
                 @else
                     <li><a href="{{ route('LoginForm') }}">ورود/ثبت نام</a></li>

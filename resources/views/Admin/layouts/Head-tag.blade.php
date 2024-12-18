@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ asset('AdminAssets/assets/css/add.css') }}">
+    <link rel="stylesheet" href="{{ asset('AdminAssets/assets/css/profile.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminAssets/assets/css/font-awesome.min.css') }}">
 
 
