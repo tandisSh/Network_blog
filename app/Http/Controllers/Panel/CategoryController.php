@@ -70,8 +70,9 @@ class CategoryController extends Controller
         return redirect()->route('Panel.Category.Categories');
     }
     public function show($id)
-{
-    $category = Category::with('articles')->findOrFail($id);
-    return view('Home.category', compact('category'));
-}
-}
+    {
+        $category = Category::with('articles')->findOrFail($id);
+        return view('Home.category', compact('category'));
+    }
+    }
+

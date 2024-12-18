@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Home\CommentController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Panel\ArticleController;
 use App\Http\Controllers\Panel\CategoryController;
@@ -47,6 +48,8 @@ Route::namespace('main')->group(function () {
     Route::get('/', [HomeController::class, "Home"])->name('Home');
     //single page
     Route::get('/single/{id}', [HomeController::class, "single"])->name('single');
+    //comments
+    Route::post('/comments', [CommentController::class, 'Comments'])->name('comments');
     //show all
     Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
 

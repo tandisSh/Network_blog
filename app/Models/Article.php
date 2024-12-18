@@ -12,9 +12,12 @@ class Article extends Model
     use HasFactory;
     protected $guarded = ["id"];
     // Article.php
-public function category()
-{
-    return $this->belongsTo(Category::class);
-}
-
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
