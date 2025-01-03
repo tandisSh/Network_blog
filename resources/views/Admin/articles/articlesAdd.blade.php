@@ -1,18 +1,6 @@
 @extends('Admin.layouts.Master')
 
 @section('content')
-{{-- <!DOCTYPE html>
-<html lang="fa">
-
-<head>
-    <meta charset="UTF-8">
-    <title>add</title>
-    <link rel="stylesheet" href="./css/add.css">
-    <link rel="stylesheet" href="./css/font-awesome.min.css">
-</head>
-
-<body dir="rtl">
-    <main> --}}
         <h1>ثبت مقالات</h1>
         <form action="{{ route('Panel.Article.StoreArticle') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -22,7 +10,7 @@
             </div>
             <div id="description">
                 <label for="article_description">توضیحات</label><br />
-                <textarea id="article_description" name="description" required></textarea><br>
+                <textarea style="height: 200px" id="article_description" name="description" required></textarea><br>
             </div>
             <div id="writer">
                 <label for="article_writer">نام نویسنده</label><br />
@@ -43,7 +31,7 @@
                 <label for="productimage">تصویر</label><br />
                 <input type="file" id="article_image" name="image" required>
             </div>
-            <button type="submit" name="submit">ثبت مقاله</button>
+            <button style="cursor: pointer" type="submit" name="submit">ثبت مقاله</button>
         </form>
     {{-- </main>
 </body>

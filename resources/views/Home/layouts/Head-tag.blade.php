@@ -19,5 +19,6 @@ http://www.tooplate.com/view/2085-neuron
 
     <!-- Main css -->
     <link rel="stylesheet" href="{{ asset('AdminAssets/assets/css/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('AdminAssets/assets/css/index.css') }}"> --}}
     <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
 
