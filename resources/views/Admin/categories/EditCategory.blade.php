@@ -1,18 +1,7 @@
 @extends('Admin.layouts.Master')
 
 @section('content')
-    {{-- <!DOCTYPE html>
-<html lang="fa">
 
-<head>
-    <meta charset="UTF-8">
-    <title>add</title>
-    <link rel="stylesheet" href="{{asset("AdminAssets/assets/css/add.css")}}">
-    <link rel="stylesheet" href="{{asset("AdminAssets/assets/css/font-awesome.min.css")}}">
-</head>
-
-<body dir="rtl">
-    <main> --}}
     <h1>ویرایش دسته بندی</h1>
     <form action="{{ route('Panel.Category.UpdateCategories' , $category->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
