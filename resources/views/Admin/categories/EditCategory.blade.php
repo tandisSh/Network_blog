@@ -12,7 +12,7 @@
 
         <div id="image">
             <label for="productimage">تصویر</label><br />
-            <input name="image" type="file" id="product_image" name="product_image" required>
+            <input name="image" type="file" id="product_image" name="product_image" >
         </div>
         <button type="submit" name="submit">ویرایش دسته بندی</button>
     </form>

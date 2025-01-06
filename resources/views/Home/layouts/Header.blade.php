@@ -18,7 +18,6 @@
 
                 @if (Auth::check())
                     <li><a href="{{ route('profile.show')}}">{{ Auth::user()->name }}</a></li>
-                    {{-- <li><a href="{{ route('logout') }}">خروج</a></li> --}}
                 @else
                     <li><a href="{{ route('LoginForm') }}">ورود/ثبت نام</a></li>
                 @endif

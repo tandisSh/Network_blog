@@ -24,7 +24,6 @@
                 <ul>
                     <li><strong>تاریخ ثبت نام:</strong> {{ $user->created_at->format('d M Y') }}</li>
                 </ul>
-                {{-- <a href="{{ route('profile.edit') }}" class="btn btn-edit">Edit Profile</a> --}}
             </div>
         </div>
     </div>

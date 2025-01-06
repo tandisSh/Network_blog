@@ -9,6 +9,17 @@ use App\Http\Controllers\Panel\CategoryController;
 use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 
+Route::namespace('Home')->group(function () {
+
+    Route::get('/', [HomeController::class, "Home"])->name('Home');
+    //single page
+    Route::get('/single/{id}', [HomeController::class, "single"])->name('single');
+    //comments
+    Route::post('/comments', [CommentController::class, 'Comments'])->name('comments');
+    //show all
+    Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+
+});
 Route::get('/panel', function () {
     return view('Admin.index');
 })->name('admin.panel')->middleware(Admin::class);
@@ -44,17 +55,7 @@ Route::prefix('Panel')->group(function () {
         Route::get('/Delete{id}', [ArticleController::class, "DeleteArticles"])->name('Panel.Article.DeleteArticles');
     });
 });
-Route::namespace('main')->group(function () {
 
-    Route::get('/', [HomeController::class, "Home"])->name('Home');
-    //single page
-    Route::get('/single/{id}', [HomeController::class, "single"])->name('single');
-    //comments
-    Route::post('/comments', [CommentController::class, 'Comments'])->name('comments');
-    //show all
-    Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
-
-});
 Route::namespace('Auth')->group(function () {
     //register form
     Route::get('/Register', [AuthController::class, "RegisterForm"])->name('RegisterForm');
@@ -70,3 +71,4 @@ Route::namespace('Auth')->group(function () {
 });
 // Route::middleware(['Admin'])->group(function() {
     Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');
+?>

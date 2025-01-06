@@ -7,13 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <title>Network Studio</title>
-    <!--
 
-Template 2085 Neuron
-
-http://www.tooplate.com/view/2085-neuron
-
--->
     <link rel="stylesheet" href="{{ asset('AdminAssets/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminAssets/assets/css/font-awesome.min.css') }}">
 

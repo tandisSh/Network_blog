@@ -5,14 +5,17 @@
 <body>
 
     @include('Home.layouts.Header')
+
     @hasSection('Home-section')
         @yield('Home-section')
     @endif
+
     <section id="blog">
         <div class="container">
             @yield('content')
         </div>
     </section>
+
     @include('Home.layouts.Footer')
     @include('Home.layouts.js')
 

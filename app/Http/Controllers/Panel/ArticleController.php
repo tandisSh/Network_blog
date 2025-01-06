@@ -45,20 +45,27 @@ class ArticleController extends Controller
     public function UpdateArticles(Request $request, $id)
     {
         $Article = Article::find($id);
-        $imageName = time() . '.' . $request->image->getClientOriginalExtension();
-        $request->image->move(public_path('AdminAssets\Article-image'), $imageName);
-        $dataform = $request->all();
-        $dataform['image'] = $imageName;
 
-        $picture = "AdminAssets/Article-image/" . $Article->image;
-        if (FacadesFile::exists($picture)) {
-            FacadesFile::delete($picture);
+        $dataform = $request->except('image');
+
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('AdminAssets/Article-image'), $imageName);
+
+            $picture = public_path('AdminAssets/Article-image/' . $Article->image);
+            if (FacadesFile::exists($picture)) {
+                FacadesFile::delete($picture);
+            }
+            $dataform['image'] = $imageName;
         }
+
         $Article->update($dataform);
 
         Alert::success(' موفقیت', ' مقاله با موفقیت ویرایش شد ');
         return redirect()->route('Panel.Article.Articles');
     }
+
+
     public function DeleteArticles(Request $request, $id)
     {
         $Article = Article::find($id);

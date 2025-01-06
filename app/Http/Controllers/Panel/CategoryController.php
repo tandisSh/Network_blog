@@ -42,6 +42,9 @@ class CategoryController extends Controller
     public function UpdateCategories(Request $request, $id)
     {
         $category = Category::find($id);
+        $dataform = $request->except('image');
+
+        if($request->hasFile('image')){
         $imageName = time() . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path('AdminAssets\Category-image'), $imageName);
         $dataform = $request->all();
@@ -51,6 +54,7 @@ class CategoryController extends Controller
         if (FacadesFile::exists($picture)) {
             FacadesFile::delete($picture);
         }
+    }
         $category->update($dataform);
 
         Alert::success(' موفقیت', 'دسته بندی با موفقیت ویرایش شد ');

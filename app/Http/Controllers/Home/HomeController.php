@@ -28,7 +28,7 @@ class HomeController extends Controller
                            ->where('id', '!=', $article->id) // حذف مقاله فعلی
                            ->take(3)
                            ->get();
-        return view('Home.layouts.Single', compact('article' ,'similarPosts'));
+        return view('Home.Single', compact('article' ,'similarPosts'));
     }
 
 }

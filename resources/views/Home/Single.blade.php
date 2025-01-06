@@ -49,12 +49,12 @@
                         <div class="blog-comment">
                             <h3>کامنت ها</h3>
                             @forelse ($article->comments as $comment)
-                                <!-- گرفتن کامنت‌های مقاله -->
+
                                 <div class="media">
                                     <div class="media-body">
-                                        <h3 class="media-heading">{{ $comment->user->name }}</h3> <!-- نام کاربر -->
-                                        <span>{{ $comment->created_at->format('F j, Y') }}</span> <!-- تاریخ -->
-                                        <p>{{ $comment->message }}</p> <!-- پیام -->
+                                        <h3 class="media-heading">{{ $comment->user->name }}</h3>
+                                        <span>{{ $comment->created_at->format('F j, Y') }}</span>
+                                        <p>{{ $comment->message }}</p> 
                                     </div>
                                 </div>
                             @empty
@@ -67,12 +67,11 @@
                                 <div class="blog-comment-form">
                                     <h3>کامنت بگذارید</h3>
                                     <form action="{{ route('comments') }}" method="POST">
-                                        @csrf <!-- برای امنیت فرم -->
+                                        @csrf
                                         <input type="hidden" name="article_id" value="{{ $article->id }}">
-                                        <!-- اتصال کامنت به مقاله -->
+
 
                                         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                                        <!-- اتصال کاربر به کامنت -->
 
                                         <input type="text" class="form-control" placeholder="Name"
                                             value="{{ Auth::user()->name }}" disabled>
@@ -90,9 +89,9 @@
                                 <div class="blog-comment-form">
                                     <h3>کامنت بگذارید</h3>
                                     <form action="#" method="POST">
-                                        @csrf <!-- برای امنیت فرم -->
+                                        @csrf
                                         <input type="hidden" name="article_id" value="{{ $article->id }}">
-                                        <!-- اتصال کامنت به مقاله -->
+
 
                                         <input type="text" class="form-control" placeholder="Name" value="Login required"
                                             disabled>
