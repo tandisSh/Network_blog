@@ -54,7 +54,7 @@ class CategoryController extends Controller
         if (FacadesFile::exists($picture)) {
             FacadesFile::delete($picture);
         }
-    }
+     }
         $category->update($dataform);
 
         Alert::success(' موفقیت', 'دسته بندی با موفقیت ویرایش شد ');
