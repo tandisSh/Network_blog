@@ -29,38 +29,34 @@
                         <div>
                             <h3 style="align-content: center">مقاله های مشابه</h3>
                         </div>
-                    <!-- مقالات مشابه -->
-<div class="row">
-    @foreach ($similarPosts as $similarPost)
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
-                <!-- تصویر مقاله -->
-                <a href="{{ route('single', $similarPost->id) }}" class="d-block">
-                    <img src="{{ asset('AdminAssets/Article-image/' . $similarPost->image) }}"
-                        alt="{{ $similarPost->name }}"
-                        class="card-img-top"
-                        style="height: 200px; object-fit: cover;">
-                </a>
 
-                <!-- اطلاعات مقاله -->
-                <div class="card-body text-center">
-                    <h5 class="card-title" style="font-size: 18px; font-weight: bold;">
-                        <a href="{{ route('single', $similarPost->id) }}" class="text-dark text-decoration-none">
-                            {{ Str::limit($similarPost->name, 50, '...') }}
-                        </a>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
+                        <div class="row">
+                            @foreach ($similarPosts as $similarPost)
+                                <div class="col-md-4 col-sm-6 mb-4">
+                                    <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
 
+                                        <a href="{{ route('single', $similarPost->id) }}" class="d-block">
+                                            <img src="{{ asset('AdminAssets/Article-image/' . $similarPost->image) }}"
+                                                alt="{{ $similarPost->name }}" class="card-img-top"
+                                                style="height: 200px; object-fit: cover;">
+                                        </a>
 
-                        {{-- comments --}}
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title" style="font-size: 18px; font-weight: bold;">
+                                                <a href="{{ route('single', $similarPost->id) }}"
+                                                    class="text-dark text-decoration-none">
+                                                    {{ Str::limit($similarPost->name, 50, '...') }}
+                                                </a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
                         <div class="blog-comment">
                             <h3>کامنت ها</h3>
                             @forelse ($article->comments as $comment)
-
                                 <div class="media">
                                     <div class="media-body">
                                         <h3 class="media-heading">{{ $comment->user->name }}</h3>
@@ -73,54 +69,55 @@
                             @endforelse
                         </div>
 
-                            {{-- leave a comment --}}
-                            @if (Auth::check() && Auth::user())
-                                <div class="blog-comment-form">
-                                    <h3>کامنت بگذارید</h3>
-                                    <form action="{{ route('comments') }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="article_id" value="{{ $article->id }}">
+
+                        @if (Auth::check() && Auth::user())
+                            <div class="blog-comment-form">
+                                <h3>کامنت بگذارید</h3>
+                                <form action="{{ route('comments') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="article_id" value="{{ $article->id }}">
 
 
-                                        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
-                                        <input type="text" class="form-control" placeholder="Name"
-                                            value="{{ Auth::user()->name }}" disabled>
-                                        <input type="email" class="form-control" placeholder="Email"
-                                            value="{{ Auth::user()->email }}" disabled>
+                                    <input type="text" class="form-control" placeholder="Name"
+                                        value="{{ Auth::user()->name }}" disabled>
+                                    <input type="email" class="form-control" placeholder="Email"
+                                        value="{{ Auth::user()->email }}" disabled>
 
-                                        <textarea name="message" rows="5" class="form-control" id="message" placeholder="Message" required="required"></textarea>
-                                        <div class="col-md-3 col-sm-4 mt-3">
-                                            <input name="submit" type="submit" class="form-control btn btn-primary"
-                                                id="submit" value="ثبت نظر">
-                                        </div>
-                                    </form>
-                                </div>
-                            @else
-                                <div class="blog-comment-form">
-                                    <h3>کامنت بگذارید</h3>
-                                    <form action="#" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="article_id" value="{{ $article->id }}">
-
-
-                                        <input type="text" class="form-control" placeholder="Name" value="Login required"
-                                            disabled>
-                                        <input type="email" class="form-control" placeholder="Email"
-                                            value="Login required" disabled>
-
-                                        <textarea name="message" rows="5" class="form-control" id="message" placeholder="Message" disabled></textarea>
-                                        <div class="col-md-3 col-sm-4 mt-3">
-                                            <button type="button" class="form-control btn btn-secondary" disabled>ثبت نظر </button>
-                                        </div>
-                                    </form>
-                                    <br>
-                                    <div style="display: flex; margin-top: 10px;">
-                                        <h4>برای ثبت کامنت، لطفا به حساب کاربری خود وارد شوید</h4>
-                                        <a href="{{ route('LoginForm') }}" class="btn btn-link">ورود به حساب</a>
+                                    <textarea name="message" rows="5" class="form-control" id="message" placeholder="Message" required="required"></textarea>
+                                    <div class="col-md-3 col-sm-4 mt-3">
+                                        <input name="submit" type="submit" class="form-control btn btn-primary"
+                                            id="submit" value="ثبت نظر">
                                     </div>
+                                </form>
+                            </div>
+                        @else
+                            <div class="blog-comment-form">
+                                <h3>کامنت بگذارید</h3>
+                                <form action="#" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="article_id" value="{{ $article->id }}">
+
+
+                                    <input type="text" class="form-control" placeholder="Name" value="Login required"
+                                        disabled>
+                                    <input type="email" class="form-control" placeholder="Email" value="Login required"
+                                        disabled>
+
+                                    <textarea name="message" rows="5" class="form-control" id="message" placeholder="Message" disabled></textarea>
+                                    <div class="col-md-3 col-sm-4 mt-3">
+                                        <button type="button" class="form-control btn btn-secondary" disabled>ثبت نظر
+                                        </button>
+                                    </div>
+                                </form>
+                                <br>
+                                <div style="display: flex; margin-top: 10px;">
+                                    <h4>برای ثبت کامنت، لطفا به حساب کاربری خود وارد شوید</h4>
+                                    <a href="{{ route('LoginForm') }}" class="btn btn-link">ورود به حساب</a>
                                 </div>
-                            @endif
+                            </div>
+                        @endif
 
                     </div>
                 </div>

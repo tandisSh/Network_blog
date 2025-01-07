@@ -40,9 +40,9 @@ body {
 #emailuser,
 #phoneNumbers,
 #pass input {
-    border: 1px solid #E8F0FE;
+    border: 1px solid #e8f0fe;
     border-radius: 20px;
-    background-color: #E8F0FE;
+    background-color: #e8f0fe;
     padding: 15px;
     width: 470px;
 }
@@ -52,9 +52,9 @@ body {
 }
 
 #pass {
-    border: 1px solid #E8F0FE;
+    border: 1px solid #e8f0fe;
     border-radius: 20px;
-    background-color: #E8F0FE;
+    background-color: #e8f0fe;
     padding: 15px;
     width: 470px;
 }
@@ -103,9 +103,7 @@ body {
 
 #open {
     background-color: #000080;
-    ;
     border: 1px solid #000080;
-    ;
     border-radius: 10px;
     color: white;
     height: 55px;

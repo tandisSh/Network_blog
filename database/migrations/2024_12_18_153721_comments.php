@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('article_id')->constrained('articles'); // اتصال به پست
-            $table->foreignId('user_id')->constrained('users'); // اتصال به جدول کاربران
-            $table->text('message'); // متن کامنت
+            $table->foreignId('article_id')->constrained('articles');
+            $table->foreignId('user_id')->constrained('users');
+            $table->text('message');
             $table->timestamps();
         });
     }

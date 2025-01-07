@@ -10,7 +10,7 @@ body {
 
 .sidebar {
     width: 200px;
-    background-color: #E8F0FE;
+    background-color: #e8f0fe;
     padding: 20px;
     height: 100vh;
     font-size: 18px;
@@ -77,7 +77,6 @@ body {
     margin: 5px;
     border: none;
     cursor: pointer;
-
 }
 
 .btn-edit {

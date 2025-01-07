@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function Comments(Request $request){
+    public function Comments(Request $request)
+    {
         $request->validate([
             'article_id' => 'required|exists:articles,id',
             'message' => 'required',
@@ -17,7 +18,7 @@ class CommentController extends Controller
 
         Comment::create([
             'article_id' => $request->article_id,
-            'user_id' => Auth::id(), // گرفتن شناسه کاربر لاگین‌شده
+            'user_id' => Auth::id(),
             'message' => $request->message,
         ]);
 

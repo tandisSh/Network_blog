@@ -10,10 +10,8 @@ class UserProfileController extends Controller
 {
     public function show()
     {
-        // گرفتن اطلاعات کاربر وارد شده
         $user = Auth::user();
 
-        // ارسال داده‌ها به ویو
         return view('Auth.Profile', compact('user'));
     }
 }

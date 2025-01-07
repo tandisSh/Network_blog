@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -58,21 +59,9 @@ class AuthController extends Controller
             return redirect()->route("LoginForm")->with('error', "ایمیل یا رمز عبور اشتباه است");
         }
     }
-    public function Logout(Request $request){
+    public function Logout(Request $request)
+    {
         Auth::logout();
         return redirect()->route('Home');
     }
-
-    // public function ShowProfile() {
-    //     // دریافت کاربر جاری
-    //     $user = Auth::user();
-
-    //     // بررسی اینکه آیا کاربری وارد شده است یا خیر
-    //     if (!$user) {
-    //         return redirect()->route('ShowProfile')->with('error', 'User not found');
-    //     }
-
-    //     // ارسال کاربر به ویو برای نمایش پروفایل
-    //     return view('Auth.profile', compact('user'));
-    // }
 }

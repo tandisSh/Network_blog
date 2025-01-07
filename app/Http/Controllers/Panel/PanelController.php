@@ -18,9 +18,8 @@ class PanelController extends Controller
         $usersCount = User::count();
         $articlesCount = Article::count();
         $categoriesCount = Category::count();
-        $commentsCount = Comment::count(); 
+        $commentsCount = Comment::count();
 
-        // ارسال به ویو
         return view('Admin.index', compact('usersCount', 'articlesCount', 'categoriesCount', 'commentsCount'));
     }
 }

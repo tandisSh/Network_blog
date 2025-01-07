@@ -9,29 +9,26 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-
-
+    
     public function Home()
     {
         $categories = Category::with(['articles' => function ($query) {
             $query->latest()->take(3);
         }])
-        ->whereHas('articles') // فقط دسته‌بندی‌هایی که مقاله دارند
-        ->get();
+            ->whereHas('articles')
+            ->get();
 
         return view('Home.index', compact('categories'));
     }
+    public function single($id)
+    {
 
-
-    public function single($id){
-
-        $article = Article::find( $id );
+        $article = Article::find($id);
         // گرفتن سه پست مشابه با توجه به category_id
         $similarPosts = Article::where('category_id', $article->category_id)
-                           ->where('id', '!=', $article->id) // حذف مقاله فعلی
-                           ->take(3)
-                           ->get();
-        return view('Home.Single', compact('article' ,'similarPosts'));
+            ->where('id', '!=', $article->id) // حذف مقاله فعلی
+            ->take(3)
+            ->get();
+        return view('Home.Single', compact('article', 'similarPosts'));
     }
-
 }

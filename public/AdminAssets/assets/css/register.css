@@ -37,9 +37,9 @@ body {
 #emailuser,
 #pass,
 #phoneNumbers {
-    border: 1px solid #E8F0FE;
+    border: 1px solid #e8f0fe;
     border-radius: 20px;
-    background-color: #E8F0FE;
+    background-color: #e8f0fe;
     padding: 15px;
     width: 470px;
     margin-top: 20px;
@@ -55,11 +55,10 @@ body {
     outline: none;
 }
 
-
 #educationLevel {
-    border: 1px solid #E8F0FE;
+    border: 1px solid #e8f0fe;
     border-radius: 20px;
-    background-color: #E8F0FE;
+    background-color: #e8f0fe;
     padding: 15px;
     width: 500px;
     margin-top: 20px;
@@ -109,7 +108,6 @@ option {
 #sabtnam:hover {
     cursor: pointer;
 }
-
 
 #google {
     border: 2px solid rgb(238, 238, 238);

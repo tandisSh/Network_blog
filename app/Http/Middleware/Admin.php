@@ -17,10 +17,9 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()->user_role === '1') {
-                return $next($request);
+            return $next($request);
         } else {
             return response("شما دسترسی لازم برای این بخش را ندارید.", 403);
         }
     }
-
 }

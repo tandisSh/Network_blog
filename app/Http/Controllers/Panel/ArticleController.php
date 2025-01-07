@@ -15,8 +15,8 @@ class ArticleController extends Controller
 {
     public function Create()
     {
-        $categories=Category::all();
-        return view("Admin.articles.articlesAdd" ,compact("categories"));
+        $categories = Category::all();
+        return view("Admin.articles.articlesAdd", compact("categories"));
     }
     public function StoreArticle(Request $request)
     {
@@ -40,7 +40,7 @@ class ArticleController extends Controller
     {
         $categories = Category::all();
         $Article = Article::find($id);
-        return view('Admin.articles.articlesEdit', compact('categories','Article'));
+        return view('Admin.articles.articlesEdit', compact('categories', 'Article'));
     }
     public function UpdateArticles(Request $request, $id)
     {
@@ -64,8 +64,6 @@ class ArticleController extends Controller
         Alert::success(' موفقیت', ' مقاله با موفقیت ویرایش شد ');
         return redirect()->route('Panel.Article.Articles');
     }
-
-
     public function DeleteArticles(Request $request, $id)
     {
         $Article = Article::find($id);

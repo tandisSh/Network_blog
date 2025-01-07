@@ -12,7 +12,7 @@
 <body dir="rtl">
 
     <div class="main">
-        <form id="form-sign" name="login" method="POST" action="{{ route('Login')}}">
+        <form id="form-sign" name="login" method="POST" action="{{ route('Login') }}">
             @csrf
             <div>
                 <h1>ورود</h1>
@@ -31,14 +31,14 @@
             <div class="accont">
                 <a id="forget" href="#">کلمه عبور خود را فراموش کرده اید؟</a>
                 <p id="sabt">
-                    حساب کاربری ندارید؟<a href="{{ route('RegisterForm')}}" id="sabtnam">  ثبت نام</a>
+                    حساب کاربری ندارید؟<a href="{{ route('RegisterForm') }}" id="sabtnam"> ثبت نام</a>
                 </p>
             </div>
             @if (session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
 
         </form>
     </div>

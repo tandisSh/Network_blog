@@ -67,8 +67,7 @@
     </div>
     <script>
         function toggleMenu(element) {
-    const parent = element.parentElement; // دریافت عنصر والد
-    parent.classList.toggle('open'); // اضافه/حذف کلاس "open"
-}
-
+            const parent = element.parentElement; // دریافت عنصر والد
+            parent.classList.toggle('open'); // اضافه/حذف کلاس "open"
+        }
     </script>

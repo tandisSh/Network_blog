@@ -14,7 +14,7 @@
 
 
     <div class="main">
-        <form id="form-register" name="register" method="post" action="{{ route('Register')}}">
+        <form id="form-register" name="register" method="post" action="{{ route('Register') }}">
             @csrf
             <div>
                 <h1>ثبت نام</h1>
@@ -22,14 +22,15 @@
 
             <div id="fullnames">
                 <label for="fullname">نام کاربری</label><br />
-                <input type="text" id="fullname" name="name" placeholder="NegarKakavan" title="فقط حروف مجاز است" />
+                <input type="text" id="fullname" name="name" placeholder="NegarKakavan"
+                    title="فقط حروف مجاز است" />
                 <span class="error-message"></span>
             </div>
 
             <div id="email">
                 <label for="emailuser">ایمیل</label><br />
                 <input type="text" id="emailuser" name="email" placeholder="NegarKakavan@gmail.com"
-                    title="لطفا ایمیل معتبر وارد کنید"  />
+                    title="لطفا ایمیل معتبر وارد کنید" />
                 <span class="error-message"></span>
             </div>
 
@@ -43,13 +44,12 @@
             <button name="button" id="sabtnam" type="submit">ثبت نام</button>
 
             <p id="sabt">
-                قبلا ثبت نام کرده اید؟<a href="{{ route('LoginForm')}}" id="vorodhesab"> ورود به حساب</a>
+                قبلا ثبت نام کرده اید؟<a href="{{ route('LoginForm') }}" id="vorodhesab"> ورود به حساب</a>
             </p>
         </form>
     </div>
 
 </body>
-<script src="{{ asset('AdminAssets/assets/js/signUp.js') }}">
+<script src="{{ asset('AdminAssets/assets/js/signUp.js') }}"></script>
 
-</script>
 </html>
