@@ -29,21 +29,32 @@
                         <div>
                             <h3 style="align-content: center">مقاله های مشابه</h3>
                         </div>
-                        {{-- similar posts --}}
-                        <div class="blog-single-post-image">
-                            <div class="row">
-                                @foreach ($similarPosts as $similarPost)
-                                    <div class="col-lg-4 col-md-4 col-sm-6">
-                                        <a href="{{ route('single', $similarPost->id) }}">
-                                            <img src="{{ asset('AdminAssets/Article-image/' . $similarPost->image) }}"
-                                                class="img-responsive" alt="{{ $similarPost->name }}">
-                                        </a>
-                                        <h5><a href="{{ route('single', $similarPost->id) }}">{{ $similarPost->name }}</a>
-                                        </h5>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
+                    <!-- مقالات مشابه -->
+<div class="row">
+    @foreach ($similarPosts as $similarPost)
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                <!-- تصویر مقاله -->
+                <a href="{{ route('single', $similarPost->id) }}" class="d-block">
+                    <img src="{{ asset('AdminAssets/Article-image/' . $similarPost->image) }}"
+                        alt="{{ $similarPost->name }}"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover;">
+                </a>
+
+                <!-- اطلاعات مقاله -->
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="font-size: 18px; font-weight: bold;">
+                        <a href="{{ route('single', $similarPost->id) }}" class="text-dark text-decoration-none">
+                            {{ Str::limit($similarPost->name, 50, '...') }}
+                        </a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
+
 
                         {{-- comments --}}
                         <div class="blog-comment">
@@ -54,7 +65,7 @@
                                     <div class="media-body">
                                         <h3 class="media-heading">{{ $comment->user->name }}</h3>
                                         <span>{{ $comment->created_at->format('F j, Y') }}</span>
-                                        <p>{{ $comment->message }}</p> 
+                                        <p>{{ $comment->message }}</p>
                                     </div>
                                 </div>
                             @empty
