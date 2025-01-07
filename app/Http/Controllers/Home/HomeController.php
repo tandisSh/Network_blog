@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    
+
     public function Home()
     {
         $categories = Category::with(['articles' => function ($query) {
@@ -24,9 +24,8 @@ class HomeController extends Controller
     {
 
         $article = Article::find($id);
-        // گرفتن سه پست مشابه با توجه به category_id
         $similarPosts = Article::where('category_id', $article->category_id)
-            ->where('id', '!=', $article->id) // حذف مقاله فعلی
+            ->where('id', '!=', $article->id) 
             ->take(3)
             ->get();
         return view('Home.Single', compact('article', 'similarPosts'));
