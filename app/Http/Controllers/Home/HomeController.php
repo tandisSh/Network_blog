@@ -16,6 +16,7 @@ class HomeController extends Controller
             $query->latest()->take(3);
         }])
             ->whereHas('articles')
+            ->take(3)
             ->get();
 
         return view('Home.index', compact('categories'));
@@ -25,7 +26,7 @@ class HomeController extends Controller
 
         $article = Article::find($id);
         $similarPosts = Article::where('category_id', $article->category_id)
-            ->where('id', '!=', $article->id) 
+            ->where('id', '!=', $article->id)
             ->take(3)
             ->get();
         return view('Home.Single', compact('article', 'similarPosts'));
