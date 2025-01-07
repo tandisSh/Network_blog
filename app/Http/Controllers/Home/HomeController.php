@@ -15,10 +15,13 @@ class HomeController extends Controller
     {
         $categories = Category::with(['articles' => function ($query) {
             $query->latest()->take(3);
-        }])->get();
+        }])
+        ->whereHas('articles') // فقط دسته‌بندی‌هایی که مقاله دارند
+        ->get();
 
         return view('Home.index', compact('categories'));
     }
+
 
     public function single($id){
 
