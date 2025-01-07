@@ -6,6 +6,7 @@ use App\Http\Controllers\Home\CommentController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Panel\ArticleController;
 use App\Http\Controllers\Panel\CategoryController;
+use App\Http\Controllers\Panel\PanelController;
 use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 
@@ -18,13 +19,12 @@ Route::namespace('Home')->group(function () {
     Route::post('/comments', [CommentController::class, 'Comments'])->name('comments');
     //show all
     Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
-
 });
-Route::get('/panel', function () {
-    return view('Admin.index');
-})->name('admin.panel')->middleware(Admin::class);
 
-Route::prefix('Panel')->group(function () {
+Route::middleware([Admin::class])->prefix('Panel')->group(function () {
+
+    // روت اصلی پنل ادمین
+    Route::get('/', [PanelController::class, 'index'])->name('admin.panel');
 
     Route::prefix('Category')->group(function () {
         //show add category page
@@ -56,6 +56,7 @@ Route::prefix('Panel')->group(function () {
     });
 });
 
+
 Route::namespace('Auth')->group(function () {
     //register form
     Route::get('/Register', [AuthController::class, "RegisterForm"])->name('RegisterForm');
@@ -67,8 +68,5 @@ Route::namespace('Auth')->group(function () {
     Route::post('/Login', [AuthController::class, "Login"])->name('Login');
 
     Route::get('/logout', [AuthController::class, "Logout"])->name('Logout');
-
 });
-// Route::middleware(['Admin'])->group(function() {
-    Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');
-?>
+Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');

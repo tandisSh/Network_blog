@@ -14,10 +14,12 @@
 
         <div class="collapse navbar-collapse" style="float: left;">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('admin.panel')}}">پنل کاربری</a></li>
 
+                @if (Auth::check() && Auth::user()->user_role == 1)
+                    <li><a href="{{ route('admin.panel') }}">پنل کاربری</a></li>
+                @endif
                 @if (Auth::check())
-                    <li><a href="{{ route('profile.show')}}">{{ Auth::user()->name }}</a></li>
+                    <li><a href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a></li>
                 @else
                     <li><a href="{{ route('LoginForm') }}">ورود/ثبت نام</a></li>
                 @endif
