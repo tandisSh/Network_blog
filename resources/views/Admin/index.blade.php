@@ -2,40 +2,44 @@
 
 @section('content')
 <div class="container mt-5">
-    <!-- پیغام خوش‌آمدگویی -->
     <div class="row">
         <div class="col-md-12 text-center mb-4">
-            <h1>به پنل مدیریت خوش آمدید</h1>
-            <p style="color: #666;">از اینجا می‌توانید بخش‌های مختلف سایت را مدیریت کنید.</p>
+            <h1 class="display-4">به پنل مدیریت خوش آمدید</h1>
+            <p class="text-muted">از اینجا می‌توانید بخش‌های مختلف سایت را مدیریت کنید.</p>
+            <hr class="my-4" style="width: 50%; margin: 20px auto; border-top: 2px solid #4b0082;">
         </div>
     </div>
 
-    <!-- اطلاعات کلی -->
-    <div class="row text-center">
-        <div class="col-md-3">
-            <div style="padding: 15px; border: 1px solid #ccc; border-radius: 10px;">
-                <h3>کاربران</h3>
-                <p>{{ $usersCount  }}</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div style="padding: 15px; border: 1px solid #ccc; border-radius: 10px;">
-                <h3>مقالات</h3>
-                <p>{{ $articlesCount }}</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div style="padding: 15px; border: 1px solid #ccc; border-radius: 10px;">
-                <h3>دسته‌بندی‌ها</h3>
-                <p>{{ $categoriesCount  }}</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div style="padding: 15px; border: 1px solid #ccc; border-radius: 10px;">
-                <h3>نظرات</h3>
-                <p>{{ $commentsCount }}</p>
-            </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table custom-table text-center">
+                <thead>
+                    <tr>
+                        <th>عنوان</th>
+                        <th>مقدار</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>کاربران</td>
+                        <td>{{ $usersCount }}</td>
+                    </tr>
+                    <tr>
+                        <td>مقالات</td>
+                        <td>{{ $articlesCount }}</td>
+                    </tr>
+                    <tr>
+                        <td>دسته‌بندی‌ها</td>
+                        <td>{{ $categoriesCount }}</td>
+                    </tr>
+                    <tr>
+                        <td>نظرات</td>
+                        <td>{{ $commentsCount }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+
 @endsection

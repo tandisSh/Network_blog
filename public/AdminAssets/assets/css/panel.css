@@ -1,0 +1,50 @@
+
+.custom-table {
+    width: 100%; /* جدول به عرض کامل ستون */
+    max-width: 100%; /* برای جلوگیری از خراب شدن طراحی */
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.custom-table thead {
+    background-color: #4b0082; /* آبی پررنگ متمایل به بنفش */
+    color: #fff;
+}
+
+.custom-table thead th {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    text-align: center;
+}
+
+.custom-table tbody tr {
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table tbody td {
+    font-size: 16px;
+    padding: 15px;
+    border: none;
+    text-align: center;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
